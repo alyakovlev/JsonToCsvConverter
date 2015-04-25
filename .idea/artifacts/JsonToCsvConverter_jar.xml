@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JsonToCsvConverter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JsonToCsvConverter_jar</output-path>
+    <root id="archive" name="JsonToCsvConverter.jar">
+      <element id="module-output" name="JsonToCsvConverter" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/opencsv-3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javax.json-1.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
