@@ -28,15 +28,15 @@ public class JsonToCsvConverter {
         try {
 
             //get city from args
-            URL restServiceURL;
+            URL inputData;
             if (args.length != 0)
-                restServiceURL = new URL(targetURL + args[0]);
+                inputData = new URL(targetURL + args[0]);
             else {
                 System.out.print("You should pass city as a first argument");
                 return;
             }
 
-            HttpURLConnection httpConnection = getHttpURLConnection(restServiceURL);
+            HttpURLConnection httpConnection = getHttpURLConnection(inputData);
 
             JsonArray jsonArray = getJsonValues(httpConnection);
             httpConnection.disconnect();
