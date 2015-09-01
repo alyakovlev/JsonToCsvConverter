@@ -1,6 +1,7 @@
 package com.ayakovlev.main;
 
 import com.opencsv.CSVWriter;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -28,15 +29,15 @@ public class JsonToCsvConverter {
         try {
 
             //get city from args
-            URL inputData;
+            URL inputDataURL;
             if (args.length != 0)
-                inputData = new URL(targetURL + args[0]);
+                inputDataURL = new URL(targetURL + args[0]);
             else {
                 System.out.print("You should pass city as a first argument");
                 return;
             }
 
-            HttpURLConnection httpConnection = getHttpURLConnection(inputData);
+            HttpURLConnection httpConnection = getHttpURLConnection(inputDataURL);
 
             JsonArray jsonArray = getJsonValues(httpConnection);
             httpConnection.disconnect();
@@ -57,8 +58,8 @@ public class JsonToCsvConverter {
     }
 
     /* get httpConnection */
-    private static HttpURLConnection getHttpURLConnection(URL restServiceURL) throws IOException {
-        HttpURLConnection httpConnection = (HttpURLConnection) restServiceURL.openConnection();
+    private static HttpURLConnection getHttpURLConnection(URL inputDataURL) throws IOException {
+        HttpURLConnection httpConnection = (HttpURLConnection) inputDataURL.openConnection();
         httpConnection.setRequestMethod("GET");
         httpConnection.setRequestProperty("Accept", "application/json");
 
